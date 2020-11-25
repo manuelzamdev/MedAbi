@@ -1,6 +1,6 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "version": 1, 
+  "version": 1,
   "newProjectRoot": "projects",
   "projects": {
     "ptojectv1": {
@@ -24,7 +24,8 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "src/assets/scss/styles.scss"
             ],
             "scripts": []
           },
@@ -119,6 +120,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "ptojectv1"
+    }
+  },
+  "defaultProject": "ptojectv1",
+  "cli": {
+    "analytics": "a8d929ec-e41c-4056-abc3-50dc32bf4e4f"
+  }
 }

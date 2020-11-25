@@ -1,0 +1,99 @@
+@import "styles/custom/functions";
+@import "styles/bootstrap/functions";
+
+@import "styles/custom/variables";
+@import "styles/bootstrap/variables";
+
+@import "styles/custom/mixins";
+@import "styles/bootstrap/mixins";
+
+// Bootstrap components
+
+@import "styles/bootstrap/root";
+@import "styles/bootstrap/reboot";
+@import "styles/bootstrap/type";
+@import "styles/bootstrap/images";
+@import "styles/bootstrap/code";
+@import "styles/bootstrap/grid";
+@import "styles/bootstrap/tables";
+@import "styles/bootstrap/forms";
+@import "styles/bootstrap/buttons";
+@import "styles/bootstrap/transitions";
+@import "styles/bootstrap/dropdown";
+@import "styles/bootstrap/button-group";
+@import "styles/bootstrap/input-group";
+@import "styles/bootstrap/custom-forms";
+@import "styles/bootstrap/nav";
+@import "styles/bootstrap/navbar";
+@import "styles/bootstrap/card";
+@import "styles/bootstrap/breadcrumb";
+@import "styles/bootstrap/pagination";
+@import "styles/bootstrap/badge";
+@import "styles/bootstrap/jumbotron";
+@import "styles/bootstrap/alert";
+@import "styles/bootstrap/progress";
+@import "styles/bootstrap/media";
+@import "styles/bootstrap/list-group";
+@import "styles/bootstrap/close";
+@import "styles/bootstrap/modal";
+@import "styles/bootstrap/tooltip";
+@import "styles/bootstrap/popover";
+@import "styles/bootstrap/carousel";
+@import "styles/bootstrap/utilities";
+@import "styles/bootstrap/print";
+
+// Custom components
+
+@import "styles/custom/alerts.scss";
+@import "styles/custom/buttons.scss";
+@import "styles/custom/dropdown.scss";
+@import "styles/custom/footer.scss";
+@import "styles/custom/forms.scss";
+@import "styles/custom/images.scss";
+@import "styles/custom/modal.scss";
+@import "styles/custom/navbar.scss";
+@import "styles/custom/type.scss";
+@import "styles/custom/icons.scss";
+@import "styles/custom/tables";
+@import "styles/custom/checkboxes-radio";
+@import "styles/custom/fixed-plugin";
+@import "styles/custom/pagination.scss";
+@import "styles/custom/misc.scss";
+@import "styles/custom/rtl.scss";
+@import "styles/custom/input-group.scss";
+@import "styles/custom/example-pages.scss";
+@import "styles/custom/progress.scss";
+@import "styles/custom/badge.scss";
+@import "styles/custom/pills.scss";
+@import "styles/custom/tabs.scss";
+@import "styles/custom/info-areas.scss";
+
+// Sections
+@import "styles/custom/sections.scss";
+
+// Vendor / Plugins
+
+@import "styles/custom/vendor/plugin-perfect-scrollbar.scss";
+@import "styles/custom/vendor/plugin-animate-bootstrap-notify.scss";
+@import "styles/custom/vendor/plugin-bootstrap-switch.scss";
+@import "styles/custom/vendor/plugin-nouislider.scss";
+@import "styles/custom/vendor/plugin-datetimepicker.scss";
+
+// Cards
+
+@import "styles/custom/card";
+@import "styles/custom/cards/card-chart";
+@import "styles/custom/cards/card-map";
+@import "styles/custom/cards/card-user";
+@import "styles/custom/cards/card-task";
+@import "styles/custom/cards/card-plain";
+@import "styles/custom/cards/card-register";
+@import "styles/custom/cards/card-stats";
+@import "styles/custom/cards/card-chart";
+
+// Angular changes
+@import "styles/angular/tabs";
+@import "styles/angular/pills";
+@import "styles/angular/alerts";
+@import "styles/angular/datepicker";
+@import "styles/angular/example-pages";
