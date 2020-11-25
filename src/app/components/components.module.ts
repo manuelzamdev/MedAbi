@@ -15,10 +15,11 @@ import { CarouselModule } from "ngx-bootstrap/carousel";
 import { ModalModule } from "ngx-bootstrap/modal";
 import { JwBootstrapSwitchNg2Module } from "jw-bootstrap-switch-ng2";
 import { PopoverModule } from "ngx-bootstrap/popover";
+import { FooterComponent } from './footer/footer.component';
 
 
 @NgModule({
-  declarations: [MainMenuComponent],
+  declarations: [MainMenuComponent, FooterComponent],
   imports: [
     CommonModule,
     RouterModule,
@@ -35,6 +36,6 @@ import { PopoverModule } from "ngx-bootstrap/popover";
     CarouselModule.forRoot(),
     ModalModule.forRoot()
   ],
-  exports: [MainMenuComponent]
+  exports: [MainMenuComponent, FooterComponent]
 })
 export class ComponentsModule { }

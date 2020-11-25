@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import noUiSlider from 'nouislider';
 
 @Component({
   selector: 'app-main-menu',
@@ -7,9 +8,5 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainMenuComponent implements OnInit {
   isCollapsed = true;
-  constructor() { }
-
-  ngOnInit(): void {
-  }
 
 }

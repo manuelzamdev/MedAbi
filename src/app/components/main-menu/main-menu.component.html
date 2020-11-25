@@ -1,58 +1,73 @@
-<nav class="navbar navbar-expand-lg fixed-top navbar-transparent" color-on-scroll="100" id="navbar-top">
-    <div class="container">
-      <div class="navbar-translate">
-        <a
-          class="navbar-brand"
-          [routerLink]="['/home']"
-          placement="bottom"
-        >
-          <span> MEDABI • </span> Telemedicina
-        </a>
-        <button
-          aria-controls="navigation-index"
-          aria-label="Toggle navigation"
-          class="navbar-toggler navbar-toggler"
-          [attr.aria-expanded]="!isCollapsed"
-          (click)="isCollapsed = !isCollapsed"
-          id="navigation"
-          type="button"
-        >
-        </button>
-      </div>
-      <div
-        class="navbar-collapse justify-content-end"
-        [collapse]="isCollapsed"
-        id="navigation"
+<nav
+  class="navbar navbar-expand-lg fixed-top bg-info"
+  color-on-scroll="100"
+  id="navbar-top"
+>
+  <div class="container">
+    <div class="navbar-translate">
+      <a
+        class="navbar-brand text-white"
+        placement="bottom"
+        [routerLink]="['/home']"
+        target="_blank"
+        tooltip="Designed and Coded by Creative Tim"
       >
-        <div class="navbar-collapse-header">
-          <div class="row">
-            <!-- <div class="col-6 collapse-brand"><a> BLK• </a></div> -->
-            <div class="col-6 collapse-close text-right">
-              <button
-                aria-controls="navigation-index"
-                aria-label="Toggle navigation"
-                class="navbar-toggler"
-                [attr.aria-expanded]="!isCollapsed"
-                (click)="isCollapsed = !isCollapsed"
-                id="navigation"
-                type="button"
-              >
-                <i class="tim-icons icon-simple-remove"> </i>
-              </button>
-            </div>
+        <span> MEDABI • </span> Telemedicina
+      </a>
+      <button
+        aria-controls="navigation-index"
+        aria-label="Toggle navigation"
+        class="navbar-toggler navbar-toggler"
+        [attr.aria-expanded]="!isCollapsed"
+        (click)="isCollapsed = !isCollapsed"
+        id="navigation"
+        type="button"
+      >
+        <span class="navbar-toggler-bar bar1"> </span>
+        <span class="navbar-toggler-bar bar2"> </span>
+        <span class="navbar-toggler-bar bar3"> </span>
+      </button>
+    </div>
+    <div
+      class="navbar-collapse justify-content-end"
+      [collapse]="isCollapsed"
+      id="navigation"
+    >
+      <div class="navbar-collapse-header">
+        <div class="row">
+          <div class="col-6 collapse-brand"><a> MEDABI • </a></div>
+          <div class="col-6 collapse-close text-right">
+            <button
+              aria-controls="navigation-index"
+              aria-label="Toggle navigation"
+              class="navbar-toggler"
+              [attr.aria-expanded]="!isCollapsed"
+              (click)="isCollapsed = !isCollapsed"
+              id="navigation"
+              type="button"
+            >
+              <i class="fas fa-times"></i>
+            </button>
           </div>
         </div>
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link" [routerLink]="['/home']">Inicio</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" [routerLink]="['/login']">Login</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" [routerLink]="['/register']">Registro</a>
-          </li>
-        </ul>
       </div>
+      <ul class="navbar-nav">
+        <li class="nav-item p-0">
+          <a class="nav-link" [routerLink]="['/home']">
+            <p >Inicio <i class="fas fa-home"></i></p>
+          </a>
+        </li>
+        <li class="nav-item p-0">
+          <a class="nav-link" [routerLink]="['/login']">
+            <p >Iniciar Sesion <i class="fas fa-user"></i></p>
+          </a>
+        </li>
+        <li class="nav-item p-0">
+          <a class="nav-link" [routerLink]="['/register']">
+            <p >Registro <i class="far fa-user"></i></p>
+          </a>
+        </li>
+      </ul>
     </div>
-  </nav>
+  </div>
+</nav>
