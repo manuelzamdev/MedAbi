@@ -24,7 +24,7 @@
                   </bSwitch>
                   <h4 class="ml-1">Doctor</h4>
                 </div>
-                <form class="form">
+                <form (ngSubmit)="login()" class="form">
                   <div
                     class="input-group"
                     [ngClass]="{ 'input-group-focus': focus1 === true }"
@@ -40,6 +40,9 @@
                       type="text"
                       (focus)="focus1 = true"
                       (blur)="focus1 = false"
+                      [(ngModel)]="email"
+                      name="email" 
+                      required
                     />
                   </div>
                   <div
@@ -54,20 +57,21 @@
                     <input
                       class="form-control"
                       placeholder="Password"
-                      type="text"
+                      type="password"
                       (focus)="focus2 = true"
                       (blur)="focus2 = false"
+                      [(ngModel)]="password"
+                      name="password" 
+                      required
                     />
                   </div>
+                  <div class="row flex-column align-items-center my-3">
+                    <button [disabled]="!validateForm(email, password)" type="submit" class="btn btn-info btn-round btn-lg">
+                        Iniciar Sesión
+                    </button>
+                    <div class="mb-1">¿Todavía no tienes una cuenta? <a href="#" routerLink="/register">Registrate</a></div>
+                  </div>
                 </form>
-              </div>
-              <div class="mx-auto mb-2">
-                <a
-                  class="btn btn-info btn-round btn-lg"
-                  href="javascript:void(0)"
-                >
-                  Iniciar Sesion
-                </a>
               </div>
             </div>
           </div>

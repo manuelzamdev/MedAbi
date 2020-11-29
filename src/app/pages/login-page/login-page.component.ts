@@ -1,4 +1,6 @@
 import { Component, OnInit, OnDestroy, HostListener } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-login-page',
@@ -6,12 +8,18 @@ import { Component, OnInit, OnDestroy, HostListener } from '@angular/core';
   styleUrls: ['./login-page.component.css']
 })
 export class LoginPageComponent implements OnInit, OnDestroy {
-
+  email = '';
+  password = '';
+  message = '';
+  errorMessage = ''; // error handle
+  error: { name: string, message: string } = { name: '', message: '' }; // firebase error handle
   isCollapsed = true;
   focus;
   focus1;
   focus2;
-  constructor() {}
+
+  constructor(private authService: AuthService, private router: Router) {}
+
   @HostListener('document:mousemove', ['$event'])
   onMouseMove(e) {
     const squares1 = document.getElementById('square1');
@@ -87,4 +95,42 @@ export class LoginPageComponent implements OnInit, OnDestroy {
     body.classList.remove('register-page');
   }
 
+  clearErrorMessage() {
+    this.errorMessage = '';
+    this.error = { name: '', message: '' };
+  }
+
+  login() {
+    this.clearErrorMessage();
+    if (this.validateForm(this.email, this.password)) {
+      this.authService.loginWithEmail(this.email, this.password)
+        .then(() => {
+         this.router.navigate(['/patient']);
+        }).catch(_error => {
+          this.error = _error;
+          this.router.navigate(['/login']);
+        });
+    }
+  }
+
+  validateForm(email, password) {
+    if (email.lenght === 0) {
+      this.errorMessage = 'please enter email id';
+      return false;
+    }
+
+    if (password.lenght === 0) {
+      this.errorMessage = 'please enter password';
+      return false;
+    }
+
+    if (password.lenght < 6) {
+      this.errorMessage = 'password should be at least 6 char';
+      return false;
+    }
+
+    this.errorMessage = '';
+    return true;
+
+  }
 }

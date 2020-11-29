@@ -17,7 +17,7 @@
                 />
                 <h4 class="card-title text-capitalize ml-1">Registro</h4>
               </div>
-              <div class="card-body">
+              <div class="card-body text-white">
                 <div class="d-flex justify-content-center align-items-baseline ">
                   <h4 class="mr-1">Paciente</h4>
                   <bSwitch
@@ -27,7 +27,7 @@
                   </bSwitch>
                   <h4 class="ml-1">Doctor</h4>
                 </div>
-                <form class="form">
+                <form (ngSubmit)="register()" class="form">
                   <div
                     class="input-group"
                     [ngClass]="{ 'input-group-focus': focus === true }"
@@ -43,6 +43,9 @@
                       type="text"
                       (focus)="focus = true"
                       (blur)="focus = false"
+                      name="fullname" 
+                      [(ngModel)]="fullname"
+                      required
                     />
                   </div>
                   <div
@@ -60,6 +63,9 @@
                       type="text"
                       (focus)="focus1 = true"
                       (blur)="focus1 = false"
+                      [(ngModel)]="email"
+                      name="email" 
+                      required
                     />
                   </div>
                   <div
@@ -74,28 +80,29 @@
                     <input
                       class="form-control"
                       placeholder="Password"
-                      type="text"
+                      type="password"
                       (focus)="focus2 = true"
                       (blur)="focus2 = false"
+                      [(ngModel)]="password"
+                      name="password" 
+                      required
                     />
                   </div>
                   <div class="form-check text-left">
                     <label class="form-check-label">
-                      <input class="form-check-input" type="checkbox" />
+                      <input class="form-check-input" type="checkbox" name="tems" [(ngModel)]="terms" required />
 
-                      <span class="form-check-sign"> </span> I agree to the
-                      <a href="javascript:void(0)"> terms and conditions </a> .
+                      <span class="form-check-sign"> </span> Aceptar los
+                      <a href="javascript:void(0)"> terminos y condiciones </a> .
                     </label>
                   </div>
+                  <div class="row flex-column align-items-center my-3">
+                    <button [disabled]="!validateForm(email, password) || !terms" type="submit" class="btn btn-info btn-round btn-lg">
+                        Registrarme
+                    </button>
+                    <div class="mb-1">¿Ya tienes una cuenta? <a href="#" routerLink="/login">Inicia Sesión</a></div>
+                  </div>
                 </form>
-              </div>
-              <div class="mx-auto mb-2">
-                <a
-                  class="btn btn-info btn-round btn-lg"
-                  href="javascript:void(0)"
-                >
-                  Registrarme
-                </a>
               </div>
             </div>
           </div>
@@ -110,75 +117,5 @@
       </div>
     </div>
   </div>
-  <footer class="footer">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-3"><h1 class="title">MEDABI •</h1></div>
-        <div class="col-md-3">
-          <ul class="nav">
-            <li class="nav-item">
-              <a class="nav-link" [routerLink]="['/home']"> Inicio </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" [routerLink]="['/register']"> Registro </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" [routerLink]="['/login']"> Login </a>
-            </li>
-          </ul>
-        </div>
-        <!-- 
-          <div class="col-md-3">
-            <ul class="nav">
-              <li class="nav-item">
-                <a class="nav-link" href="https://creative-tim.com/contact-us?ref=blkdsa-footer">
-                  Contact Us
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="https://creative-tim.com/about-us?ref=blkdsa-footer">
-                  About Us
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="https://creative-tim.com/blog?ref=blkdsa-footer">
-                  Blog
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="https://opensource.org/licenses/MIT">
-                  License
-                </a>
-              </li>
-            </ul>
-          </div>
-          <div class="col-md-3">
-            <h3 class="title">Follow us:</h3>
-            <div class="btn-wrapper profile">
-              <a
-                class="btn btn-icon btn-neutral btn-round btn-simple mr-1"
-                href="https://twitter.com/creativetim"
-                target="_blank"
-              >
-                <i class="fab fa-twitter"> </i>
-              </a>
-              <a
-                class="btn btn-icon btn-neutral btn-round btn-simple mr-1"
-                href="https://www.facebook.com/creativetim"
-                target="_blank"
-              >
-                <i class="fab fa-facebook-square"> </i>
-              </a>
-              <a
-                class="btn btn-icon btn-neutral btn-round btn-simple"
-                href="https://dribbble.com/creativetim"
-                target="_blank"
-              >
-                <i class="fab fa-dribbble"> </i>
-              </a>
-            </div>
-          </div> -->
-      </div>
-    </div>
-  </footer>
+  <app-footer></app-footer>
 </div>
