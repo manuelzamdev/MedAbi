@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./patient-module.component.css']
 })
 export class PatientModuleComponent implements OnInit {
-
+  isCollapsed = true;
   constructor() { }
 
   ngOnInit(): void {
