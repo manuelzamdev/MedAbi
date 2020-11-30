@@ -1,6 +1,8 @@
 import { Component, OnInit, OnDestroy, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
+import { ChatService } from 'src/app/services/chat.service';
+
 
 @Component({
   selector: 'app-login-page',
@@ -18,7 +20,7 @@ export class LoginPageComponent implements OnInit, OnDestroy {
   focus1;
   focus2;
 
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(private authService: AuthService, private router: Router) { }
 
   @HostListener('document:mousemove', ['$event'])
   onMouseMove(e) {

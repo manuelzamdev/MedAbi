@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MainMenuComponent } from './main-menu/main-menu.component';
 import { RouterModule } from '@angular/router';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { ProgressbarModule } from 'ngx-bootstrap/progressbar';
@@ -16,13 +17,15 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 import { JwBootstrapSwitchNg2Module } from 'jw-bootstrap-switch-ng2';
 import { PopoverModule } from 'ngx-bootstrap/popover';
 import { FooterComponent } from './footer/footer.component';
-
+import { ChatComponent } from './chat/chat.component';
+import { SideBarComponent } from './side-bar/side-bar.component';
 
 @NgModule({
-  declarations: [MainMenuComponent, FooterComponent],
+  declarations: [MainMenuComponent, FooterComponent, ChatComponent, SideBarComponent],
   imports: [
     CommonModule,
     RouterModule,
+    FormsModule,
     BsDropdownModule.forRoot(),
     ProgressbarModule.forRoot(),
     TooltipModule.forRoot(),
@@ -34,8 +37,13 @@ import { FooterComponent } from './footer/footer.component';
     AlertModule.forRoot(),
     BsDatepickerModule.forRoot(),
     CarouselModule.forRoot(),
-    ModalModule.forRoot()
+    ModalModule.forRoot(),
   ],
-  exports: [MainMenuComponent, FooterComponent]
+  exports: [
+    MainMenuComponent,
+    FooterComponent,
+    ChatComponent,
+    SideBarComponent,
+  ]
 })
 export class ComponentsModule { }

@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import { PagesRoutingModule } from './pages-routing.module';
 
 /* import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { ProgressbarModule } from 'ngx-bootstrap/progressbar';
@@ -22,16 +22,18 @@ import { ComponentsModule } from '../components/components.module';
 import { RegisterPageComponent } from './register-page/register-page.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { PatientModuleComponent } from './patient-module/patient-module.component';
+import { ChatRoomComponent } from './chat-room/chat-room.component';
 
 
 @NgModule({
-  declarations: [LandingPageComponent, RegisterPageComponent, LoginPageComponent, PatientModuleComponent],
+  declarations: [LandingPageComponent, RegisterPageComponent, LoginPageComponent, PatientModuleComponent, ChatRoomComponent],
   imports: [
     ComponentsModule,
     CommonModule,
     RouterModule,
     FormsModule,
     ReactiveFormsModule,
+    PagesRoutingModule,
     // BsDropdownModule.forRoot(),
     // ProgressbarModule.forRoot(),
     TooltipModule.forRoot(),

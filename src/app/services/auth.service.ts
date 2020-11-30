@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
+import { Users } from '../interfaces/users';
 
 
 @Injectable({
@@ -12,6 +13,7 @@ export class AuthService {
   authState: any = null;
 
   constructor(private afu: AngularFireAuth, private router: Router, private afs: AngularFirestore) {
+
     this.afu.authState.subscribe((auth => {
       this.authState = auth;
     }));
@@ -44,13 +46,18 @@ export class AuthService {
     }
   }
 
-  registerWithEmail(email: string, password: string, fullname: string) {
+  registerWithEmail(email: string, password: string, name: string, lastname: string, type: number) {
     return this.afu.createUserWithEmailAndPassword(email, password)
       .then((user: any) => {
         this.authState = user;
-        const data = {
-          email: user.user.email,
-          fullname,
+        const data: Users = {
+          email,
+          name,
+          lastname,
+          type,
+          uid: user.user.uid,
+          personalid: null,
+          phone: user.user.phone,
         };
         this.afs.doc('users/' + user.user.uid).set(data);
       })

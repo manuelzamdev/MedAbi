@@ -7,5 +7,5 @@ import { Component } from '@angular/core';
 })
 export class MainMenuComponent {
   isCollapsed = true;
-
+  localId = localStorage.getItem('user-id');
 }

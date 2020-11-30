@@ -19,6 +19,10 @@ export class RegisterPageComponent implements OnInit, OnDestroy {
   focus;
   focus1;
   focus2;
+  name;
+  lastname;
+  type;
+
   constructor(private authService: AuthService, private router: Router) {}
 
   @HostListener('document:mousemove', ['$event'])
@@ -106,7 +110,7 @@ export class RegisterPageComponent implements OnInit, OnDestroy {
     this.clearErrorMessage();
     if (this.validateForm(this.email, this.password)) {
 
-      this.authService.registerWithEmail(this.email, this.password, this.fullname)
+      this.authService.registerWithEmail(this.email, this.password, this.name, this.lastname, this.type)
         .then(() => {
           this.message = 'you are register with data on firebase';
           // this.router.navigate(['/userinfo'])
