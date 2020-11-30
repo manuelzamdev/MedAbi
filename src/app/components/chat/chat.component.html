@@ -1,17 +1,15 @@
-<div class="container row justify-content-center">
-    <div class="col-lg-6">
-        <div class="row flex-column container">            
-            <div style="height: 300px; width: 100%; background-color: black; overflow-y: auto; padding-top: .5em;">
-                <div *ngFor="let message of messages" [ngClass]="{'justify-content-end': message.senderId == localId}"  class="mx-1 d-flex justify-content-end">
-                    <div class="mb-1">
-                        <p class="text-dark badge-pill badge-light ">{{message.message}}</p>
-                    </div>
+<div class="container-fluid border rounded border-light col-lg-12 bg-light">
+    <div class="row flex-column">            
+        <div style="height: 60vh; width: 40vw; overflow-y: auto; padding-top: .5em;" class="bg-white">
+            <div *ngFor="let message of messages" [ngClass]="{'justify-content-end': message.senderId == localId}"  class="mx-1 d-flex justify-content-end">
+                <div class="mb-1">
+                    <p class="text-dark badge-pill badge-light ">{{message.message}}</p>
                 </div>
             </div>
-            <div class="form-group d-flex align-items-center">
-                <input (keypress)="handleKeyPress($event)" [(ngModel)]="newMessage" class="form-control" type="text" name="newMessage">
-                <button class="btn" (click)="sendNewMessage()">Enviar</button>
-            </div>
         </div>
-    </div>    
+        <div class="form-group mb-0 d-flex align-items-center">
+            <input (keypress)="handleKeyPress($event)" [(ngModel)]="newMessage" class="form-control" type="text" name="newMessage">
+            <button class="btn btn-info" (click)="sendNewMessage()">Enviar</button>
+        </div>
+    </div> 
 </div>

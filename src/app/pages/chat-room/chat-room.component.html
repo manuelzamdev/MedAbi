@@ -1,24 +1,17 @@
-<div class="msb" id="msb">
-    <nav class="navbar navbar-default" role="navigation">
-      <!-- Main Menu -->
-      <div class="side-menu-container">
-        <ul class="nav navbar-nav">  
-          <li class="nav-item">        
-            <div class="my-3">
-              <a href="patient/#"><i class="fas fa-tachometer-alt"></i> Jose Antonio</a>
-            </div>
-          </li>
-          <li class="active nav-item">
-            <div class="my-3">
-              <a href="patient/#"><i class="fas fa-puzzle-piece"></i> Manuel Alejandro</a>
-            </div>
-          </li>
-          <li class="nav-item">
-            <div class="my-3">
-            <a href="patient/#"><i class="fas fa-heart"></i> Boxter Zambrano</a>
-            </div>
-          </li>
-        </ul>
-      </div><!-- /.navbar-collapse -->
-    </nav>  
+<div style="height: 90vh;" class="d-flex">
+  <div class="msb" id="msb">
+      <nav class="navbar navbar-default" role="navigation">
+        <!-- Main Menu -->
+        <div class="side-menu-container">
+          <ul class="nav navbar-nav">  
+            <li *ngFor="let chat of chats" class="nav-item">        
+              <div class="my-3">
+                <a href="patient/"><i class="fas fa-tachometer-alt"></i>{{chat.name}} {{chat.lastname}}</a>
+              </div>
+            </li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </nav>  
+  </div>
+  <app-chat></app-chat>
 </div>

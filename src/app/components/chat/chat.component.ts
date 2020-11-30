@@ -10,7 +10,7 @@ export class ChatComponent implements OnInit {
   messages = [];
   newMessage = '';
   localId = localStorage.getItem('user-id');
-  
+
   constructor(private chatService: ChatService) {}
 
   ngOnInit(): void {

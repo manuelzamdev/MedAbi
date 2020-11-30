@@ -56,8 +56,8 @@ export class AuthService {
           lastname,
           type,
           uid: user.user.uid,
-          personalid: null,
-          phone: user.user.phone,
+          personalid: '',
+          phone: user.user.phone || '',
         };
         this.afs.doc('users/' + user.user.uid).set(data);
       })

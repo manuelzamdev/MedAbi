@@ -11,17 +11,17 @@ export class RegisterPageComponent implements OnInit, OnDestroy {
   email = '';
   password = '';
   message = '';
-  fullname = '';
   terms;
+  name = '';
+  lastname = '';
+  type = 1;
   errorMessage = ''; // error handle
   error: { name: string, message: string } = { name: '', message: '' }; // firebase error handle
   isCollapsed = true;
-  focus;
-  focus1;
-  focus2;
-  name;
-  lastname;
-  type;
+  focus: boolean;
+  focus1: boolean;
+  focus2: boolean;
+  focus3: boolean;
 
   constructor(private authService: AuthService, private router: Router) {}
 
@@ -94,7 +94,7 @@ export class RegisterPageComponent implements OnInit, OnDestroy {
     body.classList.add('register-page');
 
     // tslint:disable-next-line: deprecation
-    this.onMouseMove(event);
+    // this.onMouseMove(event);
   }
   ngOnDestroy() {
     const body = document.getElementsByTagName('body')[0];
@@ -112,7 +112,7 @@ export class RegisterPageComponent implements OnInit, OnDestroy {
 
       this.authService.registerWithEmail(this.email, this.password, this.name, this.lastname, this.type)
         .then(() => {
-          this.message = 'you are register with data on firebase';
+          this.router.navigate(['/login']);
           // this.router.navigate(['/userinfo'])
         }).catch(_error => {
           this.error = _error;
@@ -122,8 +122,7 @@ export class RegisterPageComponent implements OnInit, OnDestroy {
   }
 
   validateForm(email, password) {
-    if(email.lenght === 0)
-    {
+    if (email.lenght === 0) {
       this.errorMessage = 'please enter email id';
       return false;
     }
@@ -133,8 +132,7 @@ export class RegisterPageComponent implements OnInit, OnDestroy {
       return false;
     }
 
-    if (password.lenght < 6)
-    {
+    if (password.lenght < 6) {
       this.errorMessage = 'password should be at least 6 char';
       return false;
     }

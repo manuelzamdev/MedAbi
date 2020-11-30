@@ -1,14 +1,20 @@
 import { EventEmitter, Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
+import { UserInfoService } from './userInfo.service';
 import * as firebase from 'firebase';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ChatService {
-
+  chatsEmitter = new EventEmitter();
   messagesEmiter = new EventEmitter();
   id = localStorage.getItem('user-id');
+
+  constructor(private userInfoS: UserInfoService) {
+    /* firebase.default.initializeApp(environment.firebase); */
+
+   }
 
   createRoom() {
     firebase.default.database().ref('idDoctor/' + 'idenfermo').push({
@@ -22,6 +28,9 @@ export class ChatService {
   getMessages(idDoctor: string, idPatient: string) {
     firebase.default.database().ref(`${idDoctor}/${idPatient}`).on('value', (snapshot: any) => {
       const data = [];
+      /* // console.log(snapshot.ref.path.pieces_[1]);
+      this.userInfoS.getUserInfo(snapshot.ref.path.pieces_[1]);
+      this.userInfoS.userDataEmitter.subscribe(res => console.log(res)); */
       snapshot.forEach(( e: any ) => {
         const element = e.val();
         data.push({
@@ -35,15 +44,33 @@ export class ChatService {
     });
   }
 
-  newMessage(idDoctor: string, idPatient: string, message: string) {
-    firebase.default.database().ref(`${idDoctor}/${idPatient}`).push({
-      senderId: this.id,
-      message,
-      date: new Date().toDateString()
-    })
+  getDoctorChats(id: string) {
+    const data = [];
+    firebase.default.database().ref(`${id}`).on('value', async (snapshot: any) => {
+      await snapshot.forEach(( e: any ) => {
+        this.userInfoS.getUserInfo(e.ref_.path.pieces_[1]);
+        this.userInfoS.userDataEmitter.subscribe((res: any) => {
+          if (data[0]) {
+            if (data[data.length - 1].uid !== res.uid) {
+              data.push({...res});
+            }
+          } else {
+            data.push({...res});
+          }
+        });
+      });
+      this.chatsEmitter.emit(data);
+    });
   }
 
-  constructor() {
-    firebase.default.initializeApp(environment.firebase);
-   }
+  newMessage(idDoctor: string, idPatient: string, message: string) {
+    if (message.trim() != '') {
+      firebase.default.database().ref(`${idDoctor}/${idPatient}`).push({
+        senderId: this.id,
+        message,
+        date: new Date().toDateString()
+      });
+    }
+  }
+
 }

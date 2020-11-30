@@ -39,18 +39,38 @@
                     </div>
                     <input
                       class="form-control"
-                      placeholder="Full Name"
+                      placeholder="Nombre"
                       type="text"
                       (focus)="focus = true"
                       (blur)="focus = false"
-                      name="fullname" 
-                      [(ngModel)]="fullname"
+                      name="name" 
+                      [(ngModel)]="name"
                       required
                     />
                   </div>
                   <div
                     class="input-group"
                     [ngClass]="{ 'input-group-focus': focus1 === true }"
+                  >
+                    <div class="input-group-prepend">
+                      <div class="input-group-text">
+                        <i class="tim-icons icon-single-02"> </i>
+                      </div>
+                    </div>
+                    <input
+                      class="form-control"
+                      placeholder="Apellido"
+                      type="text"
+                      (focus)="focus1 = true"
+                      (blur)="focus1 = false"
+                      name="lastname" 
+                      [(ngModel)]="lastname"
+                      required
+                    />
+                  </div>
+                  <div
+                    class="input-group"
+                    [ngClass]="{ 'input-group-focus': focus2 === true }"
                   >
                     <div class="input-group-prepend">
                       <div class="input-group-text">
@@ -61,8 +81,8 @@
                       class="form-control"
                       placeholder="Email"
                       type="text"
-                      (focus)="focus1 = true"
-                      (blur)="focus1 = false"
+                      (focus)="focus2 = true"
+                      (blur)="focus2 = false"
                       [(ngModel)]="email"
                       name="email" 
                       required
@@ -70,7 +90,7 @@
                   </div>
                   <div
                     class="input-group"
-                    [ngClass]="{ 'input-group-focus': focus2 === true }"
+                    [ngClass]="{ 'input-group-focus': focus3 === true }"
                   >
                     <div class="input-group-prepend">
                       <div class="input-group-text">
@@ -81,8 +101,8 @@
                       class="form-control"
                       placeholder="Password"
                       type="password"
-                      (focus)="focus2 = true"
-                      (blur)="focus2 = false"
+                      (focus)="focus3 = true"
+                      (blur)="focus3 = false"
                       [(ngModel)]="password"
                       name="password" 
                       required
