@@ -21,13 +21,14 @@ import { CollapseModule } from 'ngx-bootstrap/collapse';
 import { ComponentsModule } from '../components/components.module';
 import { RegisterPageComponent } from './register-page/register-page.component';
 import { LoginPageComponent } from './login-page/login-page.component';
-import { PatientModuleComponent } from './patient-module/patient-module.component';
+import { AdminComponent } from './patient-module/patient-module.component';
 import { ChatRoomComponent } from './chat-room/chat-room.component';
 import { DoctorsListComponent } from './doctors-list/doctors-list.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 
 @NgModule({
-  declarations: [LandingPageComponent, RegisterPageComponent, LoginPageComponent, PatientModuleComponent, ChatRoomComponent, DoctorsListComponent],
+  declarations: [LandingPageComponent, RegisterPageComponent, LoginPageComponent, AdminComponent, ChatRoomComponent, DoctorsListComponent, DashboardComponent],
   imports: [
     ComponentsModule,
     CommonModule,

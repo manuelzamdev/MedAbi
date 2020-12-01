@@ -7,7 +7,7 @@ import { ChatService } from 'src/app/services/chat.service';
   templateUrl: './patient-module.component.html',
   styleUrls: ['./patient-module.component.scss']
 })
-export class PatientModuleComponent implements OnInit {
+export class AdminComponent implements OnInit {
   isCollapsed = true;
   localId = localStorage.getItem('user-id');
   constructor(private chatService: ChatService, private router: Router) { }
