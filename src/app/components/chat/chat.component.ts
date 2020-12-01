@@ -18,15 +18,7 @@ export class ChatComponent implements OnInit {
   constructor(private chatService: ChatService, private userInfoS: UserInfoService) {}
 
   ngOnInit(): void {
-    if (this.localIdType === 0) {
-      this.chatService.getMessages(this.localId, this.chatId);
-    } else {
-      this.chatService.getMessages(this.chatId, this.localId);
-    }
-    this.chatService.messagesEmiter.subscribe((res: any) => {
-      this.messages = res;
-      console.log(res)
-    });
+    this.initChat();
   }
 
   sendNewMessage() {
@@ -35,6 +27,7 @@ export class ChatComponent implements OnInit {
     } else {
       this.chatService.newMessage(this.chatId, this.localId, this.newMessage);
     }
+    this.initChat();
     this.newMessage = '';
   }
 
@@ -42,5 +35,16 @@ export class ChatComponent implements OnInit {
     if (event.key === 'Enter') {
       this.sendNewMessage();
     }
+  }
+
+  initChat() {
+    if (this.localIdType === 0) {
+      this.chatService.getMessages(this.localId, this.chatId);
+    } else {
+      this.chatService.getMessages(this.chatId, this.localId);
+    }
+    this.chatService.messagesEmiter.subscribe((res: any) => {
+      this.messages = res;
+    });
   }
 }

@@ -26,7 +26,7 @@ export class ChatService {
   }
 
   getMessages(idDoctor: string, idPatient: string) {
-    firebase.default.database().ref(`${idDoctor}/${idPatient}`).on('value', (snapshot: any) => {
+    firebase.default.database().ref(`${idDoctor}/${idPatient}`).once('value', (snapshot: any) => {
       const data = [];
       snapshot.forEach(( e: any ) => {
         const element = e.val();
@@ -43,7 +43,7 @@ export class ChatService {
 
   getDoctorChats(id: string) {
     const data = [];
-    firebase.default.database().ref(`${id}`).on('value', (snapshot: any) => {
+    firebase.default.database().ref(`${id}`).once('value', (snapshot: any) => {
       snapshot.forEach(( e: any ) => {
         this.userInfoS.getUserInfo(e.ref_.path.pieces_[1]);
         this.userInfoS.userDataEmitter.subscribe((res: any) => {
@@ -62,7 +62,7 @@ export class ChatService {
 
   getPatientChats(id: string) {
     const data = [];
-    firebase.default.database().ref('/').on('value', (snapshot: any) => {
+    firebase.default.database().ref('/').once('value', (snapshot: any) => {
       snapshot.forEach(( e: any ) => {
         const patientChat = e.val();
         if (patientChat.hasOwnProperty(id)) {

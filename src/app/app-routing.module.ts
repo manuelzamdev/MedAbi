@@ -6,17 +6,19 @@ import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { RegisterPageComponent } from './pages/register-page/register-page.component';
 import { PatientModuleComponent } from './pages/patient-module/patient-module.component';
 import { ChatRoomComponent } from './pages/chat-room/chat-room.component';
+import { DoctorsListComponent } from './pages/doctors-list/doctors-list.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: LandingPageComponent },
   { path: 'login', component: LoginPageComponent },
   { path: 'register', component: RegisterPageComponent },
-  { path: 'patient', component: PatientModuleComponent,
+  { path: 'admin', component: PatientModuleComponent,
     children: [{
       path: 'chats', component: ChatRoomComponent
     }]
   },
+  { path: 'doctor-list', component: DoctorsListComponent}
 ];
 
 @NgModule({

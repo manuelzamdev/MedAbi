@@ -107,7 +107,7 @@ export class LoginPageComponent implements OnInit, OnDestroy {
     if (this.validateForm(this.email, this.password)) {
       this.authService.loginWithEmail(this.email, this.password)
         .then(() => {
-         this.router.navigate(['/patient']);
+         this.router.navigate(['/admin']);
         }).catch(_error => {
           this.error = _error;
           this.router.navigate(['/login']);

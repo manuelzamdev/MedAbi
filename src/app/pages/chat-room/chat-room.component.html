@@ -13,5 +13,7 @@
         </div><!-- /.navbar-collapse -->
       </nav>
   </div>
-  <app-chat *ngIf="setChat" [chatId]='setChat' [localIdType]="localIdType"></app-chat>
+  <div *ngIf="setChat && initChat">
+    <app-chat  [chatId]='setChat' [localIdType]="localIdType"></app-chat>
+  </div>
 </div>

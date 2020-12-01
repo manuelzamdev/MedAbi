@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-main-menu',
@@ -8,4 +9,8 @@ import { Component } from '@angular/core';
 export class MainMenuComponent {
   isCollapsed = true;
   localId = localStorage.getItem('user-id');
+  constructor(private authUserS: AuthService) {}
+  singOut(){
+    this.authUserS.singout();
+  }
 }

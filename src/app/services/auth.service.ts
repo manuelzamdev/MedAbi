@@ -80,6 +80,7 @@ export class AuthService {
 
   singout(): void {
     this.afu.signOut();
+    localStorage.removeItem('user-id');
     this.router.navigate(['/login']);
   }
 

@@ -63,10 +63,15 @@
           <a class="nav-link" [routerLink]="['/register']">
             <p >Registro <i class="far fa-user"></i></p>
           </a>
-        </li>        
+        </li>
         <li class="nav-item p-0" *ngIf="localId">
-          <a class="nav-link" [routerLink]="['/patient']">
+          <a class="nav-link" [routerLink]="['/admin']">
             <p><i class="fas fa-user-circle"></i></p>
+          </a>
+        </li>
+        <li class="nav-item p-0" *ngIf="localId">
+          <a (click)="singOut()" class="nav-link" [routerLink]="['/home']">
+            <p><i class="fas fa-sign-out-alt"></i></p>
           </a>
         </li>
       </ul>

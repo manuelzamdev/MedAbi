@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { UserInfoService } from 'src/app/services/userInfo.service';
 import { ChatService } from '../../services/chat.service';
 @Component({
@@ -10,9 +11,10 @@ export class ChatRoomComponent implements OnInit {
   typeEmitter = new EventEmitter();
   chats = [];
   setChat = '';
+  initChat = false;
   localId = localStorage.getItem('user-id');
   localIdType;
-  constructor(private chatService: ChatService, private userInfoS: UserInfoService) { }
+  constructor(private chatService: ChatService, private userInfoS: UserInfoService, private router: Router) { }
 
   ngOnInit() {
     this.userInfoS.getUserType(this.localId);
@@ -33,7 +35,9 @@ export class ChatRoomComponent implements OnInit {
   }
 
   showChat(id: string) {
+    this.initChat = false;
     this.setChat = id;
+    setTimeout(() => {this.initChat = true; console.log('repite')}, 500);
   }
 
 }
