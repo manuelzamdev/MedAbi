@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ChatService } from 'src/app/services/chat.service';
+import { UserInfoService } from 'src/app/services/userInfo.service';
 
 @Component({
   selector: 'app-chat',
@@ -7,25 +8,37 @@ import { ChatService } from 'src/app/services/chat.service';
   styleUrls: ['./chat.component.css']
 })
 export class ChatComponent implements OnInit {
+  @Input() chatId = '';
+  @Input() localIdType = null;
   messages = [];
   newMessage = '';
+  active = false;
   localId = localStorage.getItem('user-id');
 
-  constructor(private chatService: ChatService) {}
+  constructor(private chatService: ChatService, private userInfoS: UserInfoService) {}
 
   ngOnInit(): void {
-    this.chatService.getMessages('asqwedase', this.localId);
-    this.chatService.messagesEmiter.subscribe(res => {
+    if (this.localIdType === 0) {
+      this.chatService.getMessages(this.localId, this.chatId);
+    } else {
+      this.chatService.getMessages(this.chatId, this.localId);
+    }
+    this.chatService.messagesEmiter.subscribe((res: any) => {
       this.messages = res;
+      console.log(res)
     });
   }
 
   sendNewMessage() {
-    this.chatService.newMessage('asqwedase', this.localId, this.newMessage);
+    if (this.localIdType === 0) {
+      this.chatService.newMessage(this.localId, this.chatId, this.newMessage);
+    } else {
+      this.chatService.newMessage(this.chatId, this.localId, this.newMessage);
+    }
     this.newMessage = '';
   }
 
-  handleKeyPress(event) {
+  handleKeyPress(event: any) {
     if (event.key === 'Enter') {
       this.sendNewMessage();
     }

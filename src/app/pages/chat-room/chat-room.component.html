@@ -5,13 +5,13 @@
         <div class="side-menu-container">
           <ul class="nav navbar-nav">  
             <li *ngFor="let chat of chats" class="nav-item">        
-              <div class="my-3">
-                <a href="patient/"><i class="fas fa-tachometer-alt"></i>{{chat.name}} {{chat.lastname}}</a>
+              <div (click)="showChat(chat.uid)" class="my-3 click-chat">
+                <a><i class="fas fa-tachometer-alt"></i>{{chat.name}} {{chat.lastname}}</a>
               </div>
             </li>
           </ul>
         </div><!-- /.navbar-collapse -->
-      </nav>  
+      </nav>
   </div>
-  <app-chat></app-chat>
+  <app-chat *ngIf="setChat" [chatId]='setChat' [localIdType]="localIdType"></app-chat>
 </div>

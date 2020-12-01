@@ -28,9 +28,6 @@ export class ChatService {
   getMessages(idDoctor: string, idPatient: string) {
     firebase.default.database().ref(`${idDoctor}/${idPatient}`).on('value', (snapshot: any) => {
       const data = [];
-      /* // console.log(snapshot.ref.path.pieces_[1]);
-      this.userInfoS.getUserInfo(snapshot.ref.path.pieces_[1]);
-      this.userInfoS.userDataEmitter.subscribe(res => console.log(res)); */
       snapshot.forEach(( e: any ) => {
         const element = e.val();
         data.push({
@@ -46,8 +43,8 @@ export class ChatService {
 
   getDoctorChats(id: string) {
     const data = [];
-    firebase.default.database().ref(`${id}`).on('value', async (snapshot: any) => {
-      await snapshot.forEach(( e: any ) => {
+    firebase.default.database().ref(`${id}`).on('value', (snapshot: any) => {
+      snapshot.forEach(( e: any ) => {
         this.userInfoS.getUserInfo(e.ref_.path.pieces_[1]);
         this.userInfoS.userDataEmitter.subscribe((res: any) => {
           if (data[0]) {
@@ -63,8 +60,30 @@ export class ChatService {
     });
   }
 
+  getPatientChats(id: string) {
+    const data = [];
+    firebase.default.database().ref('/').on('value', (snapshot: any) => {
+      snapshot.forEach(( e: any ) => {
+        const patientChat = e.val();
+        if (patientChat.hasOwnProperty(id)) {
+          this.userInfoS.getUserInfo(e.ref_.path.pieces_[0]);
+          this.userInfoS.userDataEmitter.subscribe((res: any) => {
+            if (data[0]) {
+              if (data[data.length - 1].uid !== res.uid) {
+                data.push({...res});
+              }
+            } else {
+              data.push({...res});
+            }
+          });
+        }
+      });
+      this.chatsEmitter.emit(data);
+    });
+  }
+
   newMessage(idDoctor: string, idPatient: string, message: string) {
-    if (message.trim() != '') {
+    if (message.trim() !== '') {
       firebase.default.database().ref(`${idDoctor}/${idPatient}`).push({
         senderId: this.id,
         message,

@@ -23,10 +23,11 @@ import { RegisterPageComponent } from './register-page/register-page.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { PatientModuleComponent } from './patient-module/patient-module.component';
 import { ChatRoomComponent } from './chat-room/chat-room.component';
+import { DoctorsListComponent } from './doctors-list/doctors-list.component';
 
 
 @NgModule({
-  declarations: [LandingPageComponent, RegisterPageComponent, LoginPageComponent, PatientModuleComponent, ChatRoomComponent],
+  declarations: [LandingPageComponent, RegisterPageComponent, LoginPageComponent, PatientModuleComponent, ChatRoomComponent, DoctorsListComponent],
   imports: [
     ComponentsModule,
     CommonModule,

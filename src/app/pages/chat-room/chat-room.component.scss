@@ -66,6 +66,14 @@ body.msb-x {
   }
 }
 
+.click-chat{
+  cursor: pointer;
+}
+
+.click-chat:hover a{
+  font-weight: 600;
+}
+
 /* Slide in animation */
 @-moz-keyframes slidein {
   0% {
