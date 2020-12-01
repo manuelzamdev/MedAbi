@@ -18,7 +18,7 @@ export class DoctorsListComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  handleOpc(){
+  handleOpc() {
     this.opc1 = false;
     this.opc2 = false;
     this.opc3 = false;
