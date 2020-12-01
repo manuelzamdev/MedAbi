@@ -4,7 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { LandingPageComponent } from './pages/landing-page/landing-page.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { RegisterPageComponent } from './pages/register-page/register-page.component';
-import { AdminComponent } from './pages/patient-module/patient-module.component';
+import { AdminComponent } from './pages/admin/admin.component';
 import { ChatRoomComponent } from './pages/chat-room/chat-room.component';
 import { DoctorsListComponent } from './pages/doctors-list/doctors-list.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';

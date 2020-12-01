@@ -37,7 +37,7 @@ export class ChatRoomComponent implements OnInit {
   showChat(id: string) {
     this.initChat = false;
     this.setChat = id;
-    setTimeout(() => {this.initChat = true; console.log('repite')}, 500);
+    setTimeout(() => {this.initChat = true; }, 500);
   }
 
 }
