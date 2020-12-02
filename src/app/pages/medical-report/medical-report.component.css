@@ -1,0 +1,10 @@
+form{
+    color: whitesmoke;
+    font-size: 1.2em;
+}
+
+input, textarea{
+    border-radius: 15px;
+    margin-left: 15px;
+    margin-right: 15px;
+}

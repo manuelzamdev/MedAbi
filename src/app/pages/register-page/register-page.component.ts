@@ -15,6 +15,7 @@ export class RegisterPageComponent implements OnInit, OnDestroy {
   name = '';
   lastname = '';
   typeUser: boolean;
+  typeDoc;
   errorMessage = ''; // error handle
   error: { name: string, message: string } = { name: '', message: '' }; // firebase error handle
   isCollapsed = true;
@@ -22,6 +23,7 @@ export class RegisterPageComponent implements OnInit, OnDestroy {
   focus1: boolean;
   focus2: boolean;
   focus3: boolean;
+  focus4: boolean;
   constructor(private authService: AuthService, private router: Router) {}
 
   @HostListener('document:mousemove', ['$event'])
@@ -110,8 +112,8 @@ export class RegisterPageComponent implements OnInit, OnDestroy {
     this.clearErrorMessage();
     if (this.validateForm(this.email, this.password)) {
       this.typeUser ? type = 0 : type = 1;
-
-      this.authService.registerWithEmail(this.email, this.password, this.name, this.lastname, type)
+      console.log(this.typeDoc);
+      this.authService.registerWithEmail(this.email, this.password, this.name, this.lastname, type, this.typeDoc)
         .then(() => {
           this.router.navigate(['/login']);
           // this.router.navigate(['/userinfo'])

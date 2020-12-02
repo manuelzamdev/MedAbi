@@ -46,7 +46,7 @@ export class AuthService {
     }
   }
 
-  registerWithEmail(email: string, password: string, name: string, lastname: string, type: number) {
+  registerWithEmail(email: string, password: string, name: string, lastname: string, type: number, typeDoc?: number) {
     return this.afu.createUserWithEmailAndPassword(email, password)
       .then((user: any) => {
         this.authState = user;
@@ -60,7 +60,7 @@ export class AuthService {
           phone: user.user.phone || '',
         };
         if (datausers.type === 0) {
-           const dataDoctor: IDoctor = {...datausers, verified: false, category: 0, };
+           const dataDoctor: IDoctor = {...datausers, verified: false, category: typeDoc };
            this.afs.doc('users/' + user.user.uid).set(dataDoctor);
         } else {
             this.afs.doc('users/' + user.user.uid).set(datausers);
@@ -74,10 +74,11 @@ export class AuthService {
   loginWithEmail(email: string, password: string) {
     return this.afu.signInWithEmailAndPassword(email, password)
       .then((user: any) => {
+        console.log('que pashoo');
         this.authState = user;
         localStorage.setItem('user-id', user.user.uid);
       })
-      .catch(error => { });
+      .catch(error => {throw error});
   }
 
   singout(): void {

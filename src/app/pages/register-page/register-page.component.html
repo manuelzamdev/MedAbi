@@ -68,6 +68,34 @@
                       required
                     />
                   </div>
+                  
+                  <div
+                    class="input-group"
+                    [ngClass]="{ 'input-group-focus': focus4 === true }"
+                    *ngIf="typeUser"
+                  >
+                    <div class="input-group-prepend">
+                      <div class="input-group-text">
+                        <i class="tim-icons icon-single-02"> </i>
+                      </div>
+                    </div>
+                    <select
+                      class="form-control"
+                      placeholder="Apellido"
+                      type="text"
+                      (focus)="focus4 = true"
+                      (blur)="focus4 = false"
+                      name="typeDoc" 
+                      [(ngModel)]="typeDoc"
+                      required
+                    >
+                      <option value="0">Médico General</option>
+                      <option value="1">Psicologo</option>
+                      <option value="2">Nutricionista</option>
+                      <option value="4">Odontólogo</option>
+                      <option value="3">Sexual</option>
+                    </select>
+                  </div>
                   <div
                     class="input-group"
                     [ngClass]="{ 'input-group-focus': focus2 === true }"
