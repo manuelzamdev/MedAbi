@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { UserInfoService } from 'src/app/services/userInfo.service';
 
 @Component({
   selector: 'app-doctors-list',
@@ -12,10 +13,13 @@ export class DoctorsListComponent implements OnInit {
   opc3 = false;
   opc4 = false;
   opc5 = false;
+  doctors = [];
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private userInfoS: UserInfoService) { }
 
   ngOnInit(): void {
+    this.userInfoS.getDoctors();
+    this.userInfoS.userDataEmitter.subscribe(data => this.doctors = data);
   }
 
   handleOpc() {

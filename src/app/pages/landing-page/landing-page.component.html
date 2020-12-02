@@ -4,7 +4,8 @@
   <div class="content row align-items-center">
     <div class="col-lg-7">
       <h1>¡Empieza ya!<br>Reserva tu cita y habla con un profesional</h1>
-      <button [routerLink]="['/register']" class="btn btn-info">Registrarse</button>
+      <button *ngIf="!logedUser" [routerLink]="['/register']" class="btn btn-info">Registrarse</button>
+      <button *ngIf="logedUser" [routerLink]="['/doctor-list']" class="btn btn-info">Hablar con un Doctor</button>
     </div>
     <div class="col-lg-5">
       <img src="../../../assets/img/nurse.jpg" alt="" class="img-fluid rounded">

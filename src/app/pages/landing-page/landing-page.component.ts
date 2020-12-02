@@ -7,5 +7,6 @@ import { Component } from '@angular/core';
 })
 export class LandingPageComponent {
   isCollapsed = true;
+  logedUser = localStorage.getItem('user-id');
   constructor() { }
 }

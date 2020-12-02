@@ -20,7 +20,7 @@
               <div class="card-body text-white">
                 <div class="d-flex justify-content-center align-items-baseline ">
                   <h4 class="mr-1">Paciente</h4>
-                  <bSwitch
+                  <bSwitch [(ngModel)]="typeUser" name ="typeUser" (click)="handleType()"
                   [switch-on-text]="' '"
                   [switch-off-text]="' '"
                   >

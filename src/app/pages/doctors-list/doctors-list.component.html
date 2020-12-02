@@ -36,88 +36,48 @@
     <div *ngIf="opc1 || opc2 || opc3 || opc4 || opc5">
         <h2>¿Con quién quieres consultar?</h2>
         <div *ngIf="opc1" class="row justify-content-center">
-            <div class="col-lg-4 text-center">
-                <img src="https://randomuser.me/api/portraits/women/90.jpg" class="image rounded-circle" alt="">
-                <p>Nombre Apellido</p>
-                <p (click)="chatWithDoctor()">Empieza a hablar</p>
-            </div>
-            <div class="col-lg-4 text-center">
-                <img src="https://randomuser.me/api/portraits/men/41.jpg" class="image rounded-circle" alt="">
-                <p>Nombre Apellido</p>
-                <p (click)="chatWithDoctor()">Empieza a hablar</p>
-            </div>
-            <div class="col-lg-4 text-center">
-                <img src="https://randomuser.me/api/portraits/men/80.jpg" class="image rounded-circle" alt="">
-                <p>Nombre Apellido</p>
-                <p (click)="chatWithDoctor()">Empieza a hablar</p>
+            <div *ngFor="let doc of doctors; let i = index" class="col-lg-4 text-center">
+                <div *ngIf="doc.category == 0">
+                    <img src="https://randomuser.me/api/portraits/men/{{i}}.jpg" class="image rounded-circle" alt="">
+                    <p>{{doc.name}} {{doc.lastname}}</p>
+                    <p (click)="chatWithDoctor()">Empieza a hablar</p>
+                </div>
             </div>
         </div>
         <div *ngIf="opc2" class="row justify-content-center">
-            <div class="col-lg-4 text-center">
-                <img src="https://randomuser.me/api/portraits/women/90.jpg" class="image rounded-circle" alt="">
-                <p>Nombre Apellido2</p>
-                <p (click)="chatWithDoctor()">Empieza a hablar</p>
-            </div>
-            <div class="col-lg-4 text-center">
-                <img src="https://randomuser.me/api/portraits/men/41.jpg" class="image rounded-circle" alt="">
-                <p>Nombre Apellido</p>
-                <p (click)="chatWithDoctor()">Empieza a hablar</p>
-            </div>
-            <div class="col-lg-4 text-center">
-                <img src="https://randomuser.me/api/portraits/men/80.jpg" class="image rounded-circle" alt="">
-                <p>Nombre Apellido</p>
-                <p (click)="chatWithDoctor()">Empieza a hablar</p>
+            <div *ngFor="let doc of doctors; let i = index" class="col-lg-4 text-center">
+                <div *ngIf="doc.category == 1">
+                    <img src="https://randomuser.me/api/portraits/women/{{i}}.jpg" class="image rounded-circle" alt="">
+                    <p>{{doc.name}} {{doc.lastname}}</p>
+                    <p (click)="chatWithDoctor()">Empieza a hablar</p>
+                </div>
             </div>
         </div>
         <div *ngIf="opc3" class="row justify-content-center">
-            <div class="col-lg-4 text-center">
-                <img src="https://randomuser.me/api/portraits/women/90.jpg" class="image rounded-circle" alt="">
-                <p>Nombre Apellido3</p>
-                <p (click)="chatWithDoctor()">Empieza a hablar</p>
-            </div>
-            <div class="col-lg-4 text-center">
-                <img src="https://randomuser.me/api/portraits/men/41.jpg" class="image rounded-circle" alt="">
-                <p>Nombre Apellido</p>
-                <p (click)="chatWithDoctor()">Empieza a hablar</p>
-            </div>
-            <div class="col-lg-4 text-center">
-                <img src="https://randomuser.me/api/portraits/men/80.jpg" class="image rounded-circle" alt="">
-                <p>Nombre Apellido</p>
-                <p (click)="chatWithDoctor()">Empieza a hablar</p>
+            <div *ngFor="let doc of doctors; let i = index" class="col-lg-4 text-center">
+                <div *ngIf="doc.category == 4">
+                    <img src="https://randomuser.me/api/portraits/women/{{i}}.jpg" class="image rounded-circle" alt="">
+                    <p>{{doc.name}} {{doc.lastname}}</p>
+                    <p (click)="chatWithDoctor()">Empieza a hablar</p>
+                </div>
             </div>
         </div>
         <div *ngIf="opc4" class="row justify-content-center">
-            <div class="col-lg-4 text-center">
-                <img src="https://randomuser.me/api/portraits/women/90.jpg" class="image rounded-circle" alt="">
-                <p>Nombre Apellido4</p>
-                <p (click)="chatWithDoctor()">Empieza a hablar</p>
-            </div>
-            <div class="col-lg-4 text-center">
-                <img src="https://randomuser.me/api/portraits/men/41.jpg" class="image rounded-circle" alt="">
-                <p>Nombre Apellido</p>
-                <p (click)="chatWithDoctor()">Empieza a hablar</p>
-            </div>
-            <div class="col-lg-4 text-center">
-                <img src="https://randomuser.me/api/portraits/men/80.jpg" class="image rounded-circle" alt="">
-                <p>Nombre Apellido</p>
-                <p (click)="chatWithDoctor()">Empieza a hablar</p>
+            <div *ngFor="let doc of doctors; let i = index" class="col-lg-4 text-center">
+                <div *ngIf="doc.category == 2">
+                    <img src="https://randomuser.me/api/portraits/women/{{i}}.jpg" class="image rounded-circle" alt="">
+                    <p>{{doc.name}} {{doc.lastname}}</p>
+                    <p (click)="chatWithDoctor()">Empieza a hablar</p>
+                </div>
             </div>
         </div>
         <div *ngIf="opc5" class="row justify-content-center">
-            <div class="col-lg-4 text-center">
-                <img src="https://randomuser.me/api/portraits/women/90.jpg" class="image rounded-circle" alt="">
-                <p>Nombre Apellido5</p>
-                <p (click)="chatWithDoctor()">Empieza a hablar</p>
-            </div>
-            <div class="col-lg-4 text-center">
-                <img src="https://randomuser.me/api/portraits/men/41.jpg" class="image rounded-circle" alt="">
-                <p>Nombre Apellido</p>
-                <p (click)="chatWithDoctor()">Empieza a hablar</p>
-            </div>
-            <div class="col-lg-4 text-center">
-                <img src="https://randomuser.me/api/portraits/men/80.jpg" class="image rounded-circle" alt="">
-                <p>Nombre Apellido</p>
-                <p (click)="chatWithDoctor()">Empieza a hablar</p>
+            <div *ngFor="let doc of doctors; let i = index" class="col-lg-4 text-center">
+                <div *ngIf="doc.category == 3">
+                    <img src="https://randomuser.me/api/portraits/men/{{i}}.jpg" class="image rounded-circle" alt="">
+                    <p>{{doc.name}} {{doc.lastname}}</p>
+                    <p (click)="chatWithDoctor()">Empieza a hablar</p>
+                </div>
             </div>
         </div>
     </div>

@@ -9,11 +9,11 @@ export interface Users {
 }
 
 export enum utype {
-    Patient,
-    Doctor
+    Patient, /* 1 */
+    Doctor /* 0 */
 }
 
 export interface IDoctor extends Users {
     verified: boolean;
-    category: number; /* Medicina genral: 0 ; Solud mental: 1 ; Nutricion: 2 Salud sexual: 3 Odontologo: 4  */
+    category: number; /* Medicina general: 0 ; Solud mental: 1 ; Nutricion: 2 Salud sexual: 3 Odontologo: 4  */
 }

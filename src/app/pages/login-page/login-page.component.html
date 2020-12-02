@@ -59,6 +59,9 @@
                       required
                     />
                   </div>
+                  <div class="my-2 text-white">
+                    <p>{{ errorMessage }} {{ error.message }}</p>
+                  </div>
                   <div class="row flex-column align-items-center my-3">
                     <button [disabled]="!validateForm(email, password)" type="submit" class="btn btn-info btn-round btn-lg">
                         Iniciar Sesión

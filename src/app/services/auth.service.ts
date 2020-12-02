@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
-import { Users } from '../interfaces/users';
+import { IDoctor, Users } from '../interfaces/users';
 
 
 @Injectable({
@@ -50,7 +50,7 @@ export class AuthService {
     return this.afu.createUserWithEmailAndPassword(email, password)
       .then((user: any) => {
         this.authState = user;
-        const data: Users = {
+        const datausers: Users = {
           email,
           name,
           lastname,
@@ -59,7 +59,12 @@ export class AuthService {
           personalid: '',
           phone: user.user.phone || '',
         };
-        this.afs.doc('users/' + user.user.uid).set(data);
+        if (datausers.type === 0) {
+           const dataDoctor: IDoctor = {...datausers, verified: false, category: 0, };
+           this.afs.doc('users/' + user.user.uid).set(dataDoctor);
+        } else {
+            this.afs.doc('users/' + user.user.uid).set(datausers);
+        }
       })
       .catch(error => {
         console.log(error);
@@ -72,10 +77,7 @@ export class AuthService {
         this.authState = user;
         localStorage.setItem('user-id', user.user.uid);
       })
-      .catch(error => {
-        console.log(error);
-        throw error;
-      });
+      .catch(error => { });
   }
 
   singout(): void {

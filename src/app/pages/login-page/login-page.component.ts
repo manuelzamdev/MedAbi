@@ -107,32 +107,29 @@ export class LoginPageComponent implements OnInit, OnDestroy {
     if (this.validateForm(this.email, this.password)) {
       this.authService.loginWithEmail(this.email, this.password)
         .then(() => {
-         this.router.navigate(['/admin']);
+         this.router.navigate(['/admin/dashboard']);
         }).catch(_error => {
           this.error = _error;
-          this.router.navigate(['/login']);
+          if (_error.message === 'The password is invalid or the user does not have a password.') {
+            this.errorMessage = _error.message;
+            console.log(this.errorMessage)
+          }
+          /* this.router.navigate(['/login']); */
         });
     }
   }
 
   validateForm(email, password) {
-    if (email.lenght === 0) {
-      this.errorMessage = 'please enter email id';
+    if (this.email.length === 0) {
+      this.errorMessage = 'Ingresa tu email';
       return false;
     }
 
-    if (password.lenght === 0) {
-      this.errorMessage = 'please enter password';
+    if (this.password.length === 0) {
+      this.errorMessage = 'Ingresa tu contraseña';
       return false;
     }
-
-    if (password.lenght < 6) {
-      this.errorMessage = 'password should be at least 6 char';
-      return false;
-    }
-
     this.errorMessage = '';
     return true;
-
   }
 }
