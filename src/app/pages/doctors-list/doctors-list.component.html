@@ -36,8 +36,8 @@
     <div *ngIf="opc1 || opc2 || opc3 || opc4 || opc5">
         <h2>¿Con quién quieres consultar?</h2>
         <div *ngIf="opc1" class="row justify-content-center">
-            <div *ngFor="let doc of doctors; let i = index" class="col-lg-4 text-center">
-                <div *ngIf="doc.category == 0">
+            <div *ngFor="let doc of doctorsType0; let i = index" class="col-lg-4 text-center">
+                <div>
                     <img src="https://randomuser.me/api/portraits/men/{{i}}.jpg" class="image rounded-circle" alt="">
                     <p>{{doc.name}} {{doc.lastname}}</p>
                     <p (click)="chatWithDoctor()">Empieza a hablar</p>
@@ -45,8 +45,8 @@
             </div>
         </div>
         <div *ngIf="opc2" class="row justify-content-center">
-            <div *ngFor="let doc of doctors; let i = index" class="col-lg-4 text-center">
-                <div *ngIf="doc.category == 1">
+            <div *ngFor="let doc of doctorsType1; let i = index" class="col-lg-4 text-center">
+                <div>
                     <img src="https://randomuser.me/api/portraits/women/{{i}}.jpg" class="image rounded-circle" alt="">
                     <p>{{doc.name}} {{doc.lastname}}</p>
                     <p (click)="chatWithDoctor()">Empieza a hablar</p>
@@ -54,8 +54,8 @@
             </div>
         </div>
         <div *ngIf="opc3" class="row justify-content-center">
-            <div *ngFor="let doc of doctors; let i = index" class="col-lg-4 text-center">
-                <div *ngIf="doc.category == 4">
+            <div *ngFor="let doc of doctorsType4; let i = index" class="col-lg-4 text-center">
+                <div>
                     <img src="https://randomuser.me/api/portraits/women/{{i}}.jpg" class="image rounded-circle" alt="">
                     <p>{{doc.name}} {{doc.lastname}}</p>
                     <p (click)="chatWithDoctor()">Empieza a hablar</p>
@@ -63,8 +63,8 @@
             </div>
         </div>
         <div *ngIf="opc4" class="row justify-content-center">
-            <div *ngFor="let doc of doctors; let i = index" class="col-lg-4 text-center">
-                <div *ngIf="doc.category == 2">
+            <div *ngFor="let doc of doctorsType2; let i = index" class="col-lg-4 text-center">
+                <div>
                     <img src="https://randomuser.me/api/portraits/women/{{i}}.jpg" class="image rounded-circle" alt="">
                     <p>{{doc.name}} {{doc.lastname}}</p>
                     <p (click)="chatWithDoctor()">Empieza a hablar</p>
@@ -72,8 +72,8 @@
             </div>
         </div>
         <div *ngIf="opc5" class="row justify-content-center">
-            <div *ngFor="let doc of doctors; let i = index" class="col-lg-4 text-center">
-                <div *ngIf="doc.category == 3">
+            <div *ngFor="let doc of doctorsType3; let i = index" class="col-lg-4 text-center">
+                <div>
                     <img src="https://randomuser.me/api/portraits/men/{{i}}.jpg" class="image rounded-circle" alt="">
                     <p>{{doc.name}} {{doc.lastname}}</p>
                     <p (click)="chatWithDoctor()">Empieza a hablar</p>

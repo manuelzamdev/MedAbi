@@ -13,6 +13,9 @@ export class AdminComponent implements OnInit {
   constructor(private chatService: ChatService, private router: Router) { }
 
   ngOnInit(): void {
+    if (!localStorage.getItem('user-id')) {
+      this.router.navigate(['/login']);
+    }
     if (localStorage.getItem('newChat')) {
       this.chatService.newMessage(localStorage.getItem('newChat'), this.localId, 'Hola, quiero hacer una consulta');
       localStorage.removeItem('newChat');
