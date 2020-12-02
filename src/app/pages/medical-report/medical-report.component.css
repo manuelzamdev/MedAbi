@@ -8,3 +8,11 @@ input, textarea{
     margin-left: 15px;
     margin-right: 15px;
 }
+
+.report{
+    font-size: 1.2em;
+}
+
+#exportToPDF p, #exportToPDF h5, #exportToPDF h3{
+    color: black !important;
+}

@@ -1,135 +1,129 @@
-<form class="ml-2 mb-3">
-    <table width="600" class="tablilla" >
-        <tr>
-            <td class="izq">Fecha:</td>
-            <td>
-                <input type="text" name="fecha" class="default" title="dd/MM/AA o dd-MM-AA">
-            </td>
-            <td class="izq">Hora:</td>
-            <td>
-                <input type="text" name="hora" class="default">
-            </td>
-        </tr>
-        <tr>
-            <td>Datos del Paciente</td>
-        </tr>
-        <tr>
-            <td class="izq">
-               Nombre(*): 
-            </td>
-            <td><input type="text" name="nombre" class="default"/></td>
-            <td class="izq">C.C./T.I. (*)</td>
-            <td><input type="text" name="id" class="default" /></td>
-        </tr>
-        <tr>
-            <td class="izq">G&eacute;nero(*):</td>
-            <td>
-                Hombre: <input type="radio" name="genero" value="Masculino">
-                Mujer : <input type="radio" name="genero" value="Femenino">
-            </td>
-            <td class="izq">Edad(*):</td>
-            <td>
-                <select name="edad1" class="default">
-                    <option value="0">0</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-                    <option value="9">9</option>
-                </select>
-                <select name="edad2" class="default">
-                    <option value="a">...</option>
-                    <option value="0">0</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-                    <option value="9">9</option>
-                </select>
-                <b>años</b>
-            </td>
-        </tr>
-        <tr>
-            <td class="izq">Peso(*):</td>
-            <td><input type="text" name="peso" class="default"></td>
-            <td class="izq">Estatura(*):</td>
-            <td>
-                <input type="text" name="estatura" size="12" class="default">
-                <b>c.m.</b>
-            </td>
-        </tr>
-        <tr>
-            <td class="izq">Alergias(*):</td>
-                <td>
-                <table width="300" id="alergtabla" >
-                <tr>
-                <td>
-                    <input type="checkbox" name="alergia" value="ninguna">Ninguna
-                </td>
-                <td>
-                    <input type="checkbox" name="alergia" value="quimicos">Comp. Qu&iacute;mico
-                </td>
-                </tr>
-                <tr>
-                <td>
-                    <input type="checkbox" name="alergia" value="alimentos">Alimentos
-                </td>
-                <td>
-                    <input type="checkbox" name="alergia" value="medicamentos">Medicamentos
-                </td>
-                </tr>
-                <tr>
-                <td>
-                    <input type="checkbox" name="alergia" value="polvo">Polvo
-                </td>
-                </tr>
-                </table>
-                
-            </td>
-            <td class="izq">Comentarios:</td>
-            <td>
-                <textarea name="comentarios" cols="20" rows="3" class="default">Ingresa las alergias</textarea>
-            </td>
-        </tr>
-        <tr>
-            <td>Datos del Médico</td>
-        </tr>
-        <tr>
-            <td class="izq">Nombre:</td>
-            <td><input type="text" name="nombreMed" class="default"></td>
-            <td class="izq">Especialidad:</td>
-            <td>
-                <select name="especialidad" class="default">
-                    <option value="">...</option>
-                    <option value="general">Médico General</option>
-                    <option value="psicologo">Psicologo</option>
-                    <option value="nutricionista">Nutricionista</option>
-                    <option value="odontolgo">Odontólogo</option>
-                    <option value="otro">Otro</option>
-                </select>
-            </td>
-        </tr>                
-    </table>
-    <br/>
-    <legend>Reporte</legend>
-    <table width="720" class="tablilla">
-        <tr>
-            <td class="izq">Diagnostico:</td>
-            <td>
-                <textarea name="diagnostico" cols="50" rows="3" class="default"></textarea>
-            </td>
-        </tr>
-    </table>
-    <div class="mt-2 row justify-content-around">
-        <button type="reset" class="btn btn-danger">Limpiar</button>
-        <button type="submit" class="btn btn-info">Enviar</button>
-    </div>
+<form class="ml-2 mb-3 mt-4">
+  <table width="600" class="tablilla">
+    <tr>
+      <td>Datos del Paciente</td>
+    </tr>
+    <tr>
+      <td class="izq">Nombre(*):</td>
+      <td>
+        <input
+          type="text"
+          name="nombre"
+          [(ngModel)]="datosPaciente.nombre"
+          class="default"
+        />
+      </td>
+      <td class="izq">Cédula(*)</td>
+      <td>
+        <input
+          type="number"
+          name="cedula"
+          [(ngModel)]="datosPaciente.cedula"
+          class="default"
+        />
+      </td>
+    </tr>
+    <tr>
+      <td class="izq">G&eacute;nero(*):</td>
+      <td>
+        <fieldset [(ngModel)]="datosPaciente.genero" id="genero" name="genero" ngDefaultControl>
+          Hombre: <input type="radio" name="genero" value="Masculino" />
+          Mujer : <input type="radio" name="genero" value="Femenino" />
+        </fieldset>
+      </td>
+      <td class="izq">Edad(*):</td>
+      <td>
+        <select [(ngModel)]="datosPaciente.edad" name="edad" class="default">
+          <option *ngFor="let i of numbers" value="{{ i }}">{{ i }}</option>
+        </select>
+        <b>años</b>
+      </td>
+    </tr>
+    <tr>
+      <td class="izq">Peso(*):</td>
+      <td>
+        <input
+          [(ngModel)]="datosPaciente.peso"
+          type="number"
+          name="peso"
+          class="default"
+        />
+      </td>
+      <td class="izq">Estatura(*):</td>
+      <td>
+        <input
+          [(ngModel)]="datosPaciente.estatura"
+          type="number"
+          name="estatura"
+          size="12"
+          class="default"
+        />
+        <b>c.m.</b>
+      </td>
+    </tr>
+    <tr>
+      <td>Datos del Médico</td>
+    </tr>
+    <tr>
+      <td class="izq">Nombre:</td>
+      <td><input type="text" name="nombreMed" class="default" [(ngModel)]="datosDoctor.nombre" /></td>
+      <td class="izq">Especialidad:</td>
+      <td>
+        <select name="especialidad" class="default" [(ngModel)]="datosDoctor.especialidad">
+          <option value="general">Médico General</option>
+          <option value="psicologo">Psicologo</option>
+          <option value="nutricionista">Nutricionista</option>
+          <option value="odontolgo">Odontólogo</option>
+          <option value="otro">Otro</option>
+        </select>
+      </td>
+    </tr>
+  </table>
+  <br />
+  <legend>Reporte</legend>
+  <table width="720" class="tablilla">
+    <tr>
+      <td class="izq">Diagnostico:</td>
+      <td>
+        <textarea
+          name="diagnostico"
+          cols="50"
+          rows="3"
+          class="default"
+          [(ngModel)]="reporte"
+        ></textarea>
+      </td>
+    </tr>
+  </table>
+  <div class="mt-2 row justify-content-around">
+    <button type="reset" class="btn btn-danger">Limpiar</button>
+    <button type="submit" class="btn btn-info" (click)="exportToPDF()">Enviar</button>
+  </div>
 </form>
+
+<div class="d-none container" id="exportToPDF">
+    <div class="mb-0 row justify-content-around">
+        <h3><strong>MEDABI</strong> - Informe</h3>
+        <h3><strong>Fecha:</strong> {{ fecha }}</h3>
+    </div>
+    <h3 class="mx-3"><strong>Datos del Paciente</strong></h3>
+    <div class="row justify-content-around">
+        <h5><strong>Nombre:</strong> {{ datosPaciente.nombre }}</h5>
+        <h5><strong>Cédula:</strong> {{ datosPaciente.cedula }}</h5>
+    </div>
+    <div class="row justify-content-around">
+        <h5><strong>Edad:</strong> {{ datosPaciente.edad }}</h5>
+        <h5><strong>Género:</strong> {{ datosPaciente.genero }}</h5>
+        <h5><strong>Peso:</strong> {{ datosPaciente.peso }}Kg</h5>
+        <h5><strong>Estatura:</strong> {{ datosPaciente.estatura }}cm</h5>
+    </div>
+    <h3 class="mx-3"><strong>Datos del Doctor</strong></h3>
+    <div class="row justify-content-around">
+        <h5><strong>Nombre:</strong> {{ datosDoctor.nombre }}</h5>
+        <h5><strong>Especialidad:</strong> {{ datosDoctor.especialidad }}</h5>
+    </div>
+    <h3 class="mx-3"><strong>Reporte</strong></h3>
+    <div class="row container mx-5">
+        <p class="report">{{ reporte }}</p>
+    </div>
+</div>
