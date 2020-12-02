@@ -1,13 +1,64 @@
 <app-main-menu></app-main-menu>
-    <div class="container margin-to: 12vh;">
-        <div class="row justify-content-center">
-            <div class="col-lg-5 text-center">
-                <img src="../../../assets/img/informes.png" alt="">
-                <h1>Informes medicos</h1>
-            </div>
-            <div class="col-lg-5 text-center">
-                <img src="../../../assets/img/agenda-medica.jpg" alt="">
-                <h1>Agenda medica</h1>
-            </div>
+<div *ngIf="userType === 0" class="row justify-content-center">
+        <!-- HTML para doctores -->
+    <div class="m-2 card text-center col-lg-5">
+        <img class="card-img-top" src="../../../assets/img/informe.jpg" alt="Card image" height="300px">
+        <div class="card-body">
+            <h4 class="card-title">Informes medicos</h4>
+            <a href="admin/informe" class="btn btn-primary">Ver informes</a>
         </div>
     </div>
+    <div class="m-2 card text-center col-lg-5" >
+        <img class="card-img-top" src="../../../assets/img/agenda-medica.jpg" alt="Card image" height="300px">
+        <div class="card-body">
+            <h4 class="card-title">Agenda medica</h4>
+            <a href="#" class="btn btn-primary">Ver agenda</a>
+        </div>
+    </div>
+    <div class="m-2 card text-center col-lg-5" >
+        <img class="card-img-top" src="../../../assets/img/tracing.jpg" alt="Card image" height="300px">
+        <div class="card-body">
+            <h4 class="card-title">En tratamiento</h4>
+            <a href="admin/informe" class="btn btn-primary">Haz seguimiento</a>
+        </div>
+    </div>
+    <div class="m-2 card text-center col-lg-5" >
+        <img class="card-img-top" src="../../../assets/img/finance.jpg" alt="Card image" height="300px">
+        <div class="card-body">
+            <h4 class="card-title">Finanzas</h4>
+            <a href="/membership" class="btn btn-primary">Ve tus finanzas</a>
+        </div>
+    </div>    
+</div>
+    <!-- HTML para pacientes -->
+<div *ngIf="userType === 1" class="row justify-content-center">
+    <div class="m-2 card text-center col-lg-5" >
+        <img class="card-img-top" src="../../../assets/img/report.jpg" alt="Card image" height="300px">
+        <div class="card-body">
+            <h4 class="card-title">Mis informes</h4>
+            <a href="admin/informe" class="btn btn-primary">Ve tus informes</a>
+        </div>
+    </div>
+    <div class="m-2 card text-center col-lg-5" >
+        <img class="card-img-top" src="../../../assets/img/check.jpg" alt="Card image" height="300px">
+        <div class="card-body">
+            <h4 class="card-title">Membresia</h4>
+            <a href="/membership" class="btn btn-primary">Ve a tu subscripcion</a>
+        </div>
+    </div>
+    <div class="m-2 card text-center col-lg-5" >
+        <img class="card-img-top" src="../../../assets/img/cita.jpg" alt="Card image" height="300px">
+        <div class="card-body">
+            <h4 class="card-title">Cita medica</h4>
+            <a href="/doctor-list" class="btn btn-primary">Proxima cita</a>
+        </div>
+    </div>
+    <div class="m-2 card text-center col-lg-5" >
+        <img class="card-img-top" src="../../../assets/img/doctor.jpg" alt="Card image" height="300px">
+        <div class="card-body">
+            <h4 class="card-title">Doctores</h4>
+            <a href="/doctor-list" class="btn btn-primary">Contacta</a>
+        </div>
+    </div>
+</div>
+

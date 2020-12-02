@@ -59,8 +59,11 @@
                       required
                     />
                   </div>
+                  <div class="m-2 text-danger">
+                    <p class="text-danger">{{ errorMessage }} {{ error.message }}</p>
+                  </div>
                   <div class="row flex-column align-items-center my-3">
-                    <button [disabled]="!validateForm(email, password)" type="submit" class="btn btn-info btn-round btn-lg">
+                    <button [disabled]="!validateForm(email,password)" type="submit" class="btn btn-info btn-round btn-lg">
                         Iniciar Sesión
                     </button>
                     <div class="mb-1">¿Todavía no tienes una cuenta? <a href="#" routerLink="/register">Registrate</a></div>

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { UserInfoService } from 'src/app/services/userInfo.service';
 
 @Component({
   selector: 'app-landing-page',
@@ -7,5 +8,10 @@ import { Component } from '@angular/core';
 })
 export class LandingPageComponent {
   isCollapsed = true;
-  constructor() { }
+  logedUser = localStorage.getItem('user-id');
+  userType;
+  constructor(private userInfoS: UserInfoService) {
+    userInfoS.getUserType(localStorage.getItem('user-id'));
+    userInfoS.userTypeEmitter.subscribe( res => this.userType = res);
+  }
 }

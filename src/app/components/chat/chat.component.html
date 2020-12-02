@@ -1,5 +1,5 @@
 <div class="container-fluid border rounded border-light col-lg-12 bg-light">
-    <div class="row flex-column">            
+    <div class="text-chat row flex-column">            
         <div style="height: 60vh; width: 40vw; overflow-y: auto; padding-top: .5em;" class="bg-white">
             <div *ngFor="let message of messages" [ngClass]="{'justify-content-end': message.senderId == localId}"  class="mx-1 d-flex justify-content-end">
                 <div class="mb-1">

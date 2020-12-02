@@ -13,17 +13,16 @@ export class ChatService {
 
   constructor(private userInfoS: UserInfoService) {
     /* firebase.default.initializeApp(environment.firebase); */
+  }
 
-   }
-
-  createRoom() {
+  /* createRoom() {
     firebase.default.database().ref('idDoctor/' + 'idenfermo').push({
       senderId: this.id,
       message: 'me  di duro no te imaginas mi doctor',
       date: new Date().toDateString()
     });
 
-  }
+  } */
 
   getMessages(idDoctor: string, idPatient: string) {
     firebase.default.database().ref(`${idDoctor}/${idPatient}`).once('value', (snapshot: any) => {

@@ -25,11 +25,12 @@ import { AdminComponent } from './admin/admin.component';
 import { ChatRoomComponent } from './chat-room/chat-room.component';
 import { DoctorsListComponent } from './doctors-list/doctors-list.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { MembershipComponent } from './membership/membership.component';
+import { PerfilComponent } from './perfil/perfil.component';
+import { MedicalReportComponent } from './medical-report/medical-report.component';
 
 
 @NgModule({
-  declarations: [LandingPageComponent, RegisterPageComponent, LoginPageComponent, AdminComponent, ChatRoomComponent, DoctorsListComponent, DashboardComponent, MembershipComponent],
+  declarations: [LandingPageComponent, RegisterPageComponent, LoginPageComponent, AdminComponent, ChatRoomComponent, DoctorsListComponent, DashboardComponent, PerfilComponent, MedicalReportComponent],
   imports: [
     ComponentsModule,
     CommonModule,

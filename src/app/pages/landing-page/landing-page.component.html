@@ -3,8 +3,11 @@
 <div class="page-header container">
   <div class="content row align-items-center">
     <div class="col-lg-7">
-      <h1>¡Empieza ya!<br>Reserva tu cita y habla con un profesional</h1>
-      <button [routerLink]="['/register']" class="btn btn-info">Registrarse</button>
+      <h1 *ngIf="!logedUser || userType === 1">¡Empieza ya!<br>Reserva tu cita y habla con un profesional</h1>
+      <h1 *ngIf="userType === 0">Hay personas esperando por tu ayuda.<br>Empieza a realizar consultas.</h1>
+      <button *ngIf="!logedUser" [routerLink]="['/register']" class="btn btn-info">Registrarse</button>
+      <button *ngIf="logedUser && userType === 1" [routerLink]="['/doctor-list']" class="btn btn-info">Hablar con un Doctor</button>
+      <button *ngIf="logedUser && userType === 0" [routerLink]="['/admin/perfil']" class="btn btn-info">Promociónate</button>
     </div>
     <div class="col-lg-5">
       <img src="../../../assets/img/nurse.jpg" alt="" class="img-fluid rounded">

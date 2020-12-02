@@ -26,4 +26,14 @@ export class UserInfoService {
         })
         .catch(console.log);
     }
+
+    getDoctors() {
+        this.angf.firestore.collection('users').where('type', '==', 0).get()
+        .then( (snapshot) => {
+            const data = [];
+            snapshot.forEach( (doctors) => data.push(doctors.data()));
+            this.userDataEmitter.emit(data);
+        })
+        .catch(console.log);
+    }
 }

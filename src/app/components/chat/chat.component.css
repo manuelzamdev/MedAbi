@@ -2,3 +2,13 @@
     width: 0px;
     background: transparent;
 }
+
+.text-chat{
+    font-size: 1.2em;
+    font-weight: 600;
+}
+
+input[type="text"] {
+    font-size: 1em;
+    color: black;
+}

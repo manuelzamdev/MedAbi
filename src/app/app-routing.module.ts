@@ -9,6 +9,8 @@ import { ChatRoomComponent } from './pages/chat-room/chat-room.component';
 import { DoctorsListComponent } from './pages/doctors-list/doctors-list.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { MembershipComponent } from './pages/membership/membership.component';
+import { PerfilComponent } from './pages/perfil/perfil.component';
+import { MedicalReportComponent } from './pages/medical-report/medical-report.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -19,6 +21,8 @@ const routes: Routes = [
     children: [
       { path: 'chats', component: ChatRoomComponent },
       { path: 'dashboard', component: DashboardComponent },
+      { path: 'perfil', component: PerfilComponent },
+      { path: 'informe', component: MedicalReportComponent},
     ]
   },
   { path: 'doctor-list', component: DoctorsListComponent},
