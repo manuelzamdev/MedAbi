@@ -25,10 +25,11 @@ import { AdminComponent } from './admin/admin.component';
 import { ChatRoomComponent } from './chat-room/chat-room.component';
 import { DoctorsListComponent } from './doctors-list/doctors-list.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { MembershipComponent } from './membership/membership.component';
 
 
 @NgModule({
-  declarations: [LandingPageComponent, RegisterPageComponent, LoginPageComponent, AdminComponent, ChatRoomComponent, DoctorsListComponent, DashboardComponent],
+  declarations: [LandingPageComponent, RegisterPageComponent, LoginPageComponent, AdminComponent, ChatRoomComponent, DoctorsListComponent, DashboardComponent, MembershipComponent],
   imports: [
     ComponentsModule,
     CommonModule,

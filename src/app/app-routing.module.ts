@@ -8,6 +8,7 @@ import { AdminComponent } from './pages/admin/admin.component';
 import { ChatRoomComponent } from './pages/chat-room/chat-room.component';
 import { DoctorsListComponent } from './pages/doctors-list/doctors-list.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { MembershipComponent } from './pages/membership/membership.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -21,6 +22,7 @@ const routes: Routes = [
     ]
   },
   { path: 'doctor-list', component: DoctorsListComponent},
+  { path: 'membership', component: MembershipComponent},
 
 ];
 
