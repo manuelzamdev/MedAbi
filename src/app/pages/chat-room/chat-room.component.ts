@@ -21,7 +21,6 @@ export class ChatRoomComponent implements OnInit {
     this.userInfoS.userTypeEmitter.subscribe((type: any) => {
       this.localIdType = type;
       this.typeEmitter.emit(true);
-
     });
     this.typeEmitter.subscribe(() => {
       if (this.localIdType === 0) {
@@ -29,7 +28,7 @@ export class ChatRoomComponent implements OnInit {
       } else {
         this.chatService.getPatientChats(this.localId);
       }
-      this.chatService.chatsEmitter.subscribe((chats: any) => this.chats = chats);
+      this.chatService.chatsEmitter.subscribe((chats: any) => {this.chats = chats; });
     });
 
   }
