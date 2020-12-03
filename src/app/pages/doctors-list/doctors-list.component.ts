@@ -25,16 +25,19 @@ export class DoctorsListComponent implements OnInit, OnDestroy {
     this.userInfoS.getDoctors();
     this.userInfoS.userDataEmitter.subscribe(data => {
       this.doctors = data;
-      // tslint:disable-next-line: triple-equals
-      this.doctorsType0 = this.doctors.filter(el => el.category == 0);
-      // tslint:disable-next-line: triple-equals
-      this.doctorsType1 = this.doctors.filter(el => el.category == 1);
-      // tslint:disable-next-line: triple-equals
-      this.doctorsType2 = this.doctors.filter(el => el.category == 2);
-      // tslint:disable-next-line: triple-equals
-      this.doctorsType3 = this.doctors.filter(el => el.category == 3);
-      // tslint:disable-next-line: triple-equals
-      this.doctorsType4 = this.doctors.filter(el => el.category == 4);
+      if (this.doctors) {
+        console.log(this.doctors);
+        // tslint:disable-next-line: triple-equals
+        this.doctorsType0 = this.doctors.filter(el => el.category == 0);
+        // tslint:disable-next-line: triple-equals
+        this.doctorsType1 = this.doctors.filter(el => el.category == 1);
+        // tslint:disable-next-line: triple-equals
+        this.doctorsType2 = this.doctors.filter(el => el.category == 2);
+        // tslint:disable-next-line: triple-equals
+        this.doctorsType3 = this.doctors.filter(el => el.category == 3);
+        // tslint:disable-next-line: triple-equals
+        this.doctorsType4 = this.doctors.filter(el => el.category == 4);
+      }
     });
   }
 

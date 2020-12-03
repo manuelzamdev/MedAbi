@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { jsPDF } from 'jspdf';
 import html2canvas from 'html2canvas';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-medical-report',
@@ -28,7 +29,7 @@ export class MedicalReportComponent implements OnInit {
   };
   datosDoctor: { nombre: string, especialidad: string } = { nombre: '', especialidad: '' };
   reporte = '';
-  constructor() {
+  constructor(private router: Router) {
     this.numbers = Array(80).fill(0).map((x, i) => i);
   }
 
@@ -47,6 +48,7 @@ export class MedicalReportComponent implements OnInit {
       const position = 0;
       pdf.addImage(contentDataURL, 'PNG', 0, position, imgWidth, imgHeight);
       pdf.save('informe.pdf'); // Generar y guardar PDF
+      this.router.navigate(['/admin/dashboard']);
     });
     data.classList.add('d-none');
   }
