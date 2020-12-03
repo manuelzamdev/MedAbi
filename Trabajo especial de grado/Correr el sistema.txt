@@ -1,0 +1,16 @@
+¿Como correr el sistema?
+
+Instalar angular y nodejs
+El proyecto tiene los node_module, en caso de no tenerlos instalar el proyecto (npm i) desde la carpeta del sistema
+ng serve 
+Ingresar a localhost:4200
+
+** La base de datos es firebase por lo tanto debe cambiar en el archivo enviroment.ts la apikey segun documentacion de firebase
+
+EL proyecto se encontrara en actualizacion en:
+
+https://github.com/ApiManueel/MedAbi
+
+
+Autor: Manuel Zambrano
+
